@@ -1,0 +1,43 @@
+# フォルダまるごと無視したい
+CocosBase/Resources
+CocosBase/linux/
+CocosBase/win10/
+CocosBase/win32/
+CocosBase/win8.1-universalCocosBase/
+CocosBase/bin/
+CocosBase/cocos2d/
+
+# 下階層全てのフォルダ内で ".DS_Store" ファイルを無視したい
+*/.DS_Store
+
+
+# 下階層全てのフォルダ内で拡張子が .psd のファイルを無視したい
+#*/*.psd
+#*/*.udf
+*/*.png
+*/*.so
+*/*.a
+
+# トップ階層の .exe ファイルのみを無視したい
+# ただしサブフォルダ内の .exe ファイルは無視しない
+#/*.exe
+
+# img フォルダをまるごと無視したい
+# だけど .png だけは無視したくない
+#img/*.*
+#!.png
+
+
+
+CocosBase/proj.win8.1-universal
+CocosBase/proj.win32
+CocosBase/proj.win10/App
+CocosBase/proj.win10
+CocosBase/proj.linux
+*.png
+*.o
+*.d
+*.ttf
+*.so
+*.a
+*.jar
