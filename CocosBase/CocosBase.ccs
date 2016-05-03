@@ -3,6 +3,9 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
+        <Image Name="background_title.png" />
+        <Image Name="background_game3ddemo.png.png" />
+        <Project Name="Game3DDemoScene.csd" Type="Scene" />
         <Image Name="HelloWorld.png" />
         <Project Name="MainScene.csd" Type="Scene" />
       </RootFolder>

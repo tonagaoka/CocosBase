@@ -1,4 +1,8 @@
+// 2バイト文字対応
+#pragma execution_character_set("utf-8")
+
 #include "HelloWorldScene.h"
+#include "Game3DDemoScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
@@ -84,9 +88,32 @@ bool HelloWorld::init()
         return false;
     }
     
-    auto rootNode = CSLoader::createNode("MainScene.csb");
+//    auto rootNode = CSLoader::createNode("MainScene.csb");
+//    addChild(rootNode);
 
-    addChild(rootNode);
+    auto mainScene = CSLoader::getInstance()->createNode("MainScene.csb");
+//    auto mainScene = CSLoader::getInstance()->createNode("Game3DDemoScene.csb");
+    this->addChild(mainScene);
+    
+
+    // ボタンノードを取得
+    auto button_3d = mainScene->getChildByName<ui::Button*>("Button_3D");
+    
+    // タッチイベント追加
+    button_3d->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+        
+        // タッチ中
+        if (type == ui::Widget::TouchEventType::BEGAN) {
+            dynamic_cast<ui::Button*>(sender)->setTitleText("押されている");
+        }
+        
+        // タッチが終わった後に実行
+        if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED) {
+            dynamic_cast<ui::Button*>(sender)->setTitleText("サンプル");
+            Director::getInstance()->replaceScene(TransitionFade::create(1.0f, Game3DDemo::createScene(), Color3B::WHITE));
+        }
+    });
+
 
     return true;
 }
